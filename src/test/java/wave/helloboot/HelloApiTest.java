@@ -21,10 +21,8 @@ public class HelloApiTest {
         rest.getForEntity("http://localhost:8080/hello?name={name}", String.class, "Bobae");
 
         assertThat(res.getStatusCode()).isEqualTo(HttpStatus.OK);
-        // header(content-type) text/plain
         assertThat(res.getHeaders().getFirst(HttpHeaders.CONTENT_TYPE)).startsWith(MediaType.TEXT_PLAIN_VALUE);
-        // body Hello Bobae
-        assertThat(res.getBody()).isEqualTo("Hello Bobae");
+        assertThat(res.getBody()).isEqualTo("*Hello Bobae*");
     }
 
     @Test
