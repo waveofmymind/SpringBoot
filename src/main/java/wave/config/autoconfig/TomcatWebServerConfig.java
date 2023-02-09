@@ -1,23 +1,18 @@
-package wave.helloboot;
+package wave.config.autoconfig;
 
-import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
-import org.springframework.web.servlet.DispatcherServlet;
+import wave.config.MyAutoConfiguration;
 
-@Configuration
-public class Config {
+@MyAutoConfiguration
+public class TomcatWebServerConfig {
 
-    @Bean
+    @Bean("tomcatWebServerFactory")
+
     public ServletWebServerFactory servletWebServerFactory() {
-        return new TomcatServletWebServerFactory();
-    }
 
-    @Bean
-    public DispatcherServlet dispatcherServlet() {
-        return new DispatcherServlet();
+        return new TomcatServletWebServerFactory();
     }
 }
